@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Mensajes',
-    version='1.0',
+    version='2.0',
     description='Un paquete para saludar y despedir',
     author='Ruben Montes Gonzalez',
     author_email='hola@.ruben.com',
