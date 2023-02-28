@@ -1,7 +1,7 @@
 import sqlite3
 
 def crear_bd():
-	conexion = sqlite3.connect("restaurante_final.db")
+	conexion = sqlite3.connect("restaurant.db")
 	cursor = conexion.cursor()
 
 	try:
@@ -32,7 +32,7 @@ def crear_bd():
 def agregar_categoria():
 	categoria = input("¿Nombre de la nueva categoría?\n> ")
 
-	conexion = sqlite3.connect("restaurante_final.db")
+	conexion = sqlite3.connect("restaurant.db")
 	cursor = conexion.cursor()
 
 	try:
@@ -48,17 +48,17 @@ def agregar_categoria():
 
 def agregar_plato():
 
-	conexion = sqlite3.connect("restaurante_final.db")
+	conexion = sqlite3.connect("restaurant.db")
 	cursor = conexion.cursor()
 
 	categorias = cursor.execute("SELECT * FROM categoria").fetchall()
 	print("Selecciona una categoría para añadir el plato:")
 	for categoria in categorias:
-		print("[{}] {}".format(categoria[0], categoria[1]))
+		print("{}. {}".format(categoria[0], categoria[1]))
 
 	categoria_usuario = int(input("> "))
 
-	plato = input("¿Nombre del nuevo plato?\n> ")
+	plato = input("Nombre del nuevo plato?\n> ")
 
 	try:
 		cursor.execute("INSERT INTO plato VALUES (null, '{}', {})".format(plato, categoria_usuario) )
@@ -74,7 +74,7 @@ def agregar_plato():
 
 def mostrar_menu():
 
-	conexion = sqlite3.connect("restaurante_final.db")
+	conexion = sqlite3.connect("restaurant.db")
 	cursor = conexion.cursor()	
 
 	categorias = cursor.execute("SELECT * FROM categoria").fetchall()	
@@ -92,7 +92,7 @@ crear_bd()
 
 # Menú de opciones del programa
 while True:
-	print("\nBienvenido al gestor del restaurante!")
+	print("\n== RESTAURANTE ==")
 	opcion = input("\nIntroduce una opción:\n[1] Agregar una categoría\n[2] Agregar un plato\n[3] Mostrar el menú\n[4] Salir del programa\n\n> ")
 
 	if opcion == "1":
@@ -105,7 +105,7 @@ while True:
 		mostrar_menu()
 
 	elif opcion == "4":
-		print("Nos vemos!")
+		print("Cerrando programa...")
 		break
 
 	else:

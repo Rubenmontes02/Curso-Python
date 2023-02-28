@@ -13,7 +13,7 @@ Label(root, text="Menú del día", fg="green", font=("Times New Roman",24,"bold 
 # Separación de títulos y categorias
 Label(root, text="").pack()
 
-conexion = sqlite3.connect("restaurante_final.db")
+conexion = sqlite3.connect("restaurant.db")
 cursor = conexion.cursor()
 
 # Buscar las categorías y platos de la bd
@@ -33,5 +33,5 @@ conexion.close()
 # Precio del menú
 Label(root, text="12€ (IVA incl.)", fg="darkgreen", font=("Times New Roman",20,"bold italic")).pack(side="right")
 
-# Finalmente ejecutamos el bucle
+
 root.mainloop()
