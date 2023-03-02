@@ -1,8 +1,13 @@
+import numpy as np
+
 def saludar():
     print('hola, te saludo desde saludos.saludar()')
 
 def prueba():
     print('Prueba de la nueva version')
+
+def generarArray(numeros):
+    return np.arange(numeros)
 
     
 class Saludo:
@@ -12,4 +17,4 @@ class Saludo:
 
 
 if __name__ == '__main__':
-    saludar()
+    print(generarArray(5))
